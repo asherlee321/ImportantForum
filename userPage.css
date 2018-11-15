@@ -1,0 +1,43 @@
+
+.navbar{
+    color: white;
+}
+.navbar-nav{
+    float:left;
+}
+
+#itemOne{
+    color:white;
+    padding-right:20px;
+    
+}
+#itemTwo{
+    color:white;
+    text-decoration: none;
+}
+a:hover, a:visited, a:active {
+    text-decoration: none;
+    color:white;
+
+}
+#userIcon{
+    border-radius: 5px;
+}
+#divider{
+    color: darkgrey;
+    
+}
+.forumPost{
+    background-color: lightgrey;
+    margin-left: 10px;
+}
+
+.centerElements {
+    position: relative;
+    top: 10px;
+}
+
+textarea{
+    resize:none;
+    max-width: 100%;
+}

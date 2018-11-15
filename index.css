@@ -1,0 +1,37 @@
+.header {
+    padding-top: 50px;
+  }
+ 
+  body {
+      background-color: #d6d8db;
+  }
+  .alert {
+      position: relative;
+      bottom: -50px;  
+  }
+  .loginForm {
+      background-color: darkgrey;  
+  }
+
+  #showLogin{
+      position: relative;
+      top: 10px;
+  }
+  #showSignup{
+      position: relative;
+      top:50px;
+  }
+  #LoginForm{
+      margin: 0 auto;
+      position: relative;
+      top: 10px;
+  }
+  #SignUpForm{
+      margin: 0 auto;
+      position: relative;
+      top: 50px;
+  }
+  
+  #stayLoggedIn{
+      outline: 0;
+  }
