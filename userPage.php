@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html>
 <head>
+<title> Important Forum </title>
 <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 <link rel="stylesheet" href="userPage.css"/>
-
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
     <?php
@@ -88,13 +89,23 @@
         <input type="submit" value="Post" class="btn btn-dark col-10 offset-1" name="submitBtn"/>
     </form>
 </div>
-<div class="row">
-    <p class="col-5 forumPost"> 
+<div class="row" id="forum">
+    <p class="col-5 forumPost" id="forumPost"> 
     <?php
      displayUserData();
     ?>
     </p>
 </div>
 </div>
+
+<script>
+    setInterval(
+        function(){
+            $("#forumPost").load("userPage.php #forumPost");
+        },
+        2000
+        
+    );
+</script>
 </body>
 </html>
