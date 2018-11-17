@@ -41,3 +41,14 @@ textarea{
     resize:none;
     max-width: 100%;
 }
+
+#postForm{
+ margin-left:50px;
+}
+#forumPost {
+ margin-left:50px;
+ }
+
+ #postedTime {
+     color: #7a7675;
+ }

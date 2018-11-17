@@ -12,13 +12,11 @@
         $getID = "SELECT UserID FROM Users WHERE username='$user'";
         $ID = $conn->query($getID)->fetch_assoc()["UserID"];
 
-        $getData = "SELECT userData FROM TextData";
-        $userData = $conn->query($getData);
-  
 
         if(!empty($_POST)){
             $inputData = $_POST["UserInput"];
-            $insertData = "INSERT INTO TextData (userData, userID) VALUES ( '$inputData', $ID)";
+            $postedTime = $_POST["CurrentTime"];
+            $insertData = "INSERT INTO TextData (userData, userID, postedTime) VALUES ( '$inputData', $ID, '$postedTime')";
             $conn->query($insertData);
         }
         

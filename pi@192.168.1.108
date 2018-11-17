@@ -64,10 +64,9 @@
 
 <script>
     let oldPostCount = 0;
-    let time;
     setInterval(
         function(){
-            
+         
             $.ajax({
                 type: "POST",
                 url: "getPostCount.php",
@@ -82,7 +81,7 @@
                 },
             });
         },
-        1000
+        2000
         
     );
 
@@ -98,51 +97,20 @@
     });
 
     $("#submitBtn").click(function(){
-        
         let data = $("#UserInput").val();
-       
-        data = evalString(data);
-
         $.ajax({
             type: "POST",
             url: "userPageSubmit.php",
             dataType: "text",
             data: {
-                UserInput: data,
-                CurrentTime: time
+                UserInput: data
             },
             success: function(){
-              
                 $("#UserInput").val("");
-                
             }
         });
         
     })
-    
-   
-
-
-    function getTime(){
-        let date = new Date();
-        let currtime = (date.getHours()+":"+date.getMinutes()+":"+date.getSeconds());
-        time = currtime;
-        setTimeout(getTime, 1000);
-        
-    }
-
-    getTime();
-
-    function evalString(data){
-        let temp = data;
-        for(let i = 0; i < data.length; i++){
-            if(data[i] == "'") {
-                temp = data.substring(0,i)+"'"+data.substring(i, data.length);
-            }
-            
-        }
-        return temp;
-    }
 </script>
 </body>
 </html>
