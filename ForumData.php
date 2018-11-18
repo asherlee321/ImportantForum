@@ -1,5 +1,5 @@
 <link rel="stylesheet" href="userPage.css"/>
-
+<body>
 <?php 
     require 'Variables.php';
 
@@ -57,3 +57,4 @@
     <div id="footer"></div>
     </p>
 </div>
+</body>

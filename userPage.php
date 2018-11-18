@@ -120,9 +120,7 @@
                 CurrentTime: time
             },
             success: function(){
-              
                 $("#UserInput").val("");
-                
             }
         });
         

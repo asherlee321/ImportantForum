@@ -59,3 +59,12 @@ textarea{
      padding-right:10px;
      top:30px;
  }
+
+ #userInput {
+     overflow-y: scroll;
+     overflow-x: hidden;    
+ }
+ body {
+    overflow-x:hidden;
+    height:100%; //optional, but it can't hurt.
+}
