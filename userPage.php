@@ -23,15 +23,6 @@
         $getProfileLink = "SELECT profileImage FROM Users WHERE UserID=$ID";
         $profileLinkDB = $conn->query($getProfileLink);
        
-       
-        $getTrueUser = "SELECT UserName FROM Users WHERE UserID=$ID";
-        $trueUser = $conn->query($getTrueUser) ;
-       
-        $getPostCount = "SELECT COUNT(userData) as c FROM TextData";
-        $postCount = $conn->query($getPostCount)->fetch_assoc()["c"];
-       
-        $getData = "SELECT userData, id FROM TextData";
-        $userData = $conn->query($getData);
         
        
         $profileLinkDB = $profileLinkDB->fetch_assoc()["profileImage"];
