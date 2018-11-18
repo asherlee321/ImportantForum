@@ -23,7 +23,7 @@
 
   
     
-        
+        $conn->close();
     ?>
     <script> 
 

@@ -21,6 +21,7 @@
             else {
                 
             }
+            $conn->close();
        
 
             

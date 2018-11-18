@@ -47,6 +47,7 @@
             }
         }
     }
+    $conn->close();
 ?>
 
 <div class="row" id="forum" style="margin-left:50px">
