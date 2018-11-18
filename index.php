@@ -101,6 +101,7 @@
             if($pass == $UserPassword){
                 echo "test";
                 $_SESSION['username'] = $user;
+                $_SESSION['userID'] = $ID;
                
                 header('Location: userPage.php');
             }
@@ -145,8 +146,7 @@
         $pass = $_POST["passwordSignUp"];
         $passConfirm = $_POST["passwordSignUpConfirm"];
         $sql = "INSERT INTO Users (UserName, UserPassword) VALUES ('$user', '$pass')";
-        $getID = "SELECT UserID FROM Users WHERE username='$user'";
-        $ID = $conn->query($getID)->fetch_assoc()["UserID"];
+        
         
         $checkAccount = "SELECT COUNT(UserName) as c FROM Users WHERE UserName='$user'";
         $result = $conn->query($checkAccount);

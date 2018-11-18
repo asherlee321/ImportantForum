@@ -8,11 +8,17 @@
  $conn = new mysqli($server, $username, $password, $database);
  
  $user = $_SESSION['username'];
- $getID = "SELECT UserID FROM Users WHERE username='$user'";
- $ID = $conn->query($getID)->fetch_assoc()["UserID"];
+ $ID = $_SESSION['userID'];
 
-$getPostCount = "SELECT COUNT(userData) as c FROM TextData";
-$postCount = $conn->query($getPostCount)->fetch_assoc()["c"];
+ $getProfileLink = "SELECT profileImage FROM Users WHERE UserID=$ID";
+ $profileLinkDB = $conn->query($getProfileLink);
+
+
+ $getTrueUser = "SELECT UserName FROM Users WHERE UserID=$ID";
+ $trueUser = $conn->query($getTrueUser) ;
+
+ $getPostCount = "SELECT COUNT(userData) as c FROM TextData";
+ $postCount = $conn->query($getPostCount)->fetch_assoc()["c"];
 
  $getData = "SELECT userData, id FROM TextData";
  $userData = $conn->query($getData);

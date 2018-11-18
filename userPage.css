@@ -52,3 +52,10 @@ textarea{
  #postedTime {
      color: #7a7675;
  }
+
+ #profileImage {
+     position: relative;
+     margin-left:-55px;
+     padding-right:10px;
+     top:30px;
+ }

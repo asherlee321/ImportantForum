@@ -10,7 +10,8 @@
     <?php
         session_start();
         require 'Variables.php';
-        
+        $profileLinkDB = $profileLinkDB->fetch_assoc()["profileImage"];
+
         if(isset($_GET["logout"])){
             session_destroy();
             header('Location: '. $_GET["logout"]);
@@ -28,11 +29,18 @@
 
     </script>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
-    <a class="navbar-brand" href="#">Important Forum</a>
+    <a class="navbar-brand" href="userPage.php">Important Forum</a>
     <ul class="navbar-nav ml-auto">
       <li class="nav-item" id="itemOne">
-        <img id="userIcon" width="20" height="20" src="userIcon.jpg"/>
-        <a class="navbar-link" > 
+        <img id="userIcon" width="20" height="20" src="<?php 
+            if($profileLinkDB != NULL)
+                echo $profileLinkDB; 
+            else {
+                echo "userIcon.jpg";
+            }
+            
+            ?>"/>
+        <a class="navbar-link" href="userProfile.php"> 
             <?php echo $user ?> 
         </a>
       </li>
@@ -135,11 +143,11 @@
 
     function evalString(data){
         let temp = data;
-        for(let i = 0; i < data.length; i++){
+        for(let i = -1; i < data.length; i++){
             if(data[i] == "'") {
-                temp = data.substring(0,i)+"'"+data.substring(i, data.length);
+                temp = data.substring(0,i)+"'"+data.substring(i,data.length);
             }
-            
+                
         }
         return temp;
     }
