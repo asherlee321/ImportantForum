@@ -28,14 +28,13 @@
             $profileLink = $_POST["profileLink"];
 
             $profileLinkDB = $profileLinkDB->fetch_assoc()["profileImage"];
-            if(isset($profileLink)){
+            if(isset($profileLink) && strpos($profileLink, "image") !== false){
+              
+
                 $insertProfile = "UPDATE Users SET profileImage='$profileLink' WHERE UserID=$ID";
                 $conn->query($insertProfile);
             }
-            else {
-                
-            }
-       
+            
 
             
 
@@ -74,7 +73,7 @@
         <h4> This is your profile picture </h4>
         <img src=" 
         <?php 
-            if(isset($profileLink)){
+            if(isset($profileLink)  && strpos($profileLink, "image") !== false){
                 echo $profileLink;
             }
             else {
