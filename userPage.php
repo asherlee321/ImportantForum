@@ -26,7 +26,7 @@
         
        
         $profileLinkDB = $profileLinkDB->fetch_assoc()["profileImage"];
-
+    
         if(isset($_GET["logout"])){
             session_destroy();
             header('Location: '. $_GET["logout"]);
@@ -47,11 +47,7 @@
     <ul class="navbar-nav ml-auto">
       <li class="nav-item" id="itemOne">
         <img id="userIcon" width="20" height="20" src="<?php 
-            if($profileLinkDB != NULL)
-                echo $profileLinkDB; 
-            else {
-                echo "userIcon.jpg";
-            }
+            echo  $profileLinkDB;
             
             ?>"/>
         <a class="navbar-link" href="userProfile.php"> 

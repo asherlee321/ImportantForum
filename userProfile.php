@@ -1,4 +1,4 @@
-    <html>
+<html>
     <head> 
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
     <link rel="stylesheet" href="userPage.css"/>
@@ -24,20 +24,21 @@
             $profileLinkDB = $conn->query($getProfileLink);
             
            
-
             $profileLink = $_POST["profileLink"];
-
             $profileLinkDB = $profileLinkDB->fetch_assoc()["profileImage"];
-            if(isset($profileLink) && strpos($profileLink, "image") !== false){
-              
+            
+            if(isset($profileLink) && strpos($profileLink, "image") !== false){   
+                $url_to_image = "$profileLink";
+                $my_save_dir = 'upload/';
+                $filename = basename($ID . ".png");
+                $complete_save_loc = $my_save_dir . $filename;
+                file_put_contents($complete_save_loc, file_get_contents($url_to_image));
 
-                $insertProfile = "UPDATE Users SET profileImage='$profileLink' WHERE UserID=$ID";
+                $insertProfile = "UPDATE Users SET profileImage='upload/$ID.png' WHERE UserID=$ID";
                 $conn->query($insertProfile);
             }
             
-
             
-
             
         ?>
         <nav class="navbar navbar-expand-lg navbar-dark bg-dark ">
@@ -79,7 +80,6 @@
             else {
                 echo "$profileLinkDB";
             }
-
         ?>
         "
         />

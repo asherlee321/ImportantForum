@@ -49,8 +49,8 @@
                
                 //Display Username, Profile picture, Post and Posted Time of the currently accessed user.
                 echo 
-                //"<img src='$profileImage' width='40' height='40' id='profileImage'/>"
-                //.
+                "<img src='$profileImage' width='40' height='40' id='profileImage'/>"
+                .
                 "
                 <b> $currUser: </b>" .
                  htmlspecialchars($row["userData"]) . 
