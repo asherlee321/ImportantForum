@@ -78,12 +78,16 @@
 </div>
 
 <script> 
-let scrollEventHandler = function()
-{
-  window.scroll(0, window.pageYOffset)
-}
 
+
+if(navigator.userAgent.indexOf("Chrome") != -1){
+    let scrollEventHandler = function(){
+        window.scroll(0, window.pageYOffset)
+        window.scroll(0, document.body.scrollHeight);
+    }
 window.addEventListener("scroll", scrollEventHandler, false);
+
+}
 
 
 </script>
