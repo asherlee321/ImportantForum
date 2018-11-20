@@ -70,8 +70,21 @@
     <p class="col-5 forumPost" id="forumPost"> 
     <?php
      displayUserData();
+     
     ?>
-    <div id="footer"></div>
     </p>
+    <div id='footer'></div>
+
 </div>
+
+<script> 
+let scrollEventHandler = function()
+{
+  window.scroll(0, window.pageYOffset)
+}
+
+window.addEventListener("scroll", scrollEventHandler, false);
+
+
+</script>
 </body>

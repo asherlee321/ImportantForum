@@ -26,12 +26,12 @@
         
        
         $profileLinkDB = $profileLinkDB->fetch_assoc()["profileImage"];
-    
+
         if(isset($_GET["logout"])){
             session_destroy();
             header('Location: '. $_GET["logout"]);
         }
-        if(!isset($user)){
+        if(!isset($_SESSION['username'])){
             header('Location: index.php');
         }
 
@@ -83,6 +83,8 @@
 <script>
     let oldPostCount = 0;
     let time;
+
+    let user = "<?php echo $user ?>";
     setInterval(
         function(){
             
@@ -95,7 +97,6 @@
                     if(result > oldPostCount){
                         document.getElementById("forumPost").contentWindow.location.reload(true);
                         oldPostCount = result;
-
                     }
                 },
             });
@@ -120,19 +121,20 @@
         let data = $("#UserInput").val();
        
         data = evalString(data);
-
-        $.ajax({
-            type: "POST",
-            url: "userPageSubmit.php",
-            dataType: "text",
-            data: {
-                UserInput: data,
-                CurrentTime: time
-            },
-            success: function(){
-                $("#UserInput").val("");
-            }
-        });
+        if(typeof(user) !== 'undefined'){
+            $.ajax({
+                type: "POST",
+                url: "userPageSubmit.php",
+                dataType: "text",
+                data: {
+                    UserInput: data,
+                    CurrentTime: time
+                },
+                success: function(){
+                    $("#UserInput").val("");
+                }
+            });
+        }
         
     })
     
@@ -143,6 +145,7 @@
         let date = new Date();
         let currtime = (date.getHours()+":"+date.getMinutes()+":"+date.getSeconds());
         time = currtime;
+        user = "<?php echo $user ?>"
         setTimeout(getTime, 1000);
         
     }

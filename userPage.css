@@ -65,6 +65,8 @@ textarea{
      overflow-x: hidden;    
  }
  body {
+    max-width: 100%;
+
     overflow-x:hidden;
-    height:100%; //optional, but it can't hurt.
+    overflow-y: scroll;
 }
