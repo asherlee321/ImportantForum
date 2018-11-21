@@ -82,7 +82,7 @@
 <script>
     let oldPostCount = 0;
     let time;
-
+    // Update page
     setInterval(
         function(){
             let user = "<?php echo $_SESSION['username']; ?>";
@@ -123,18 +123,20 @@
         let data = $("#UserInput").val();
         data = evalString(data);
         if(user.length > 0){
-            $.ajax({
-                type: "POST",
-                url: "userPageSubmit.php",
-                dataType: "text",
-                data: {
-                    UserInput: data,
-                    CurrentTime: time
-                },
-                success: function(){
-                    $("#UserInput").val("");
-                }
-            });
+            if(data.length > 0){
+                $.ajax({
+                    type: "POST",
+                    url: "userPageSubmit.php",
+                    dataType: "text",
+                    data: {
+                        UserInput: data,
+                        CurrentTime: time
+                    },
+                    success: function(){
+                        $("#UserInput").val("");
+                    }
+                });
+            }
         }
         else {
             document.location.href = "index.php";
