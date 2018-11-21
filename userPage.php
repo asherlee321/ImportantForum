@@ -31,13 +31,12 @@
             session_destroy();
             header('Location: '. $_GET["logout"]);
         }
+
         if(!isset($_SESSION['username'])){
             header('Location: index.php');
+        
         }
-
-
-  
-    
+ 
     ?>
     <script> 
 
@@ -84,10 +83,12 @@
     let oldPostCount = 0;
     let time;
 
-    let user = "<?php echo $user ?>";
     setInterval(
         function(){
-            
+            let user = "<?php echo $_SESSION['username']; ?>";
+            if(user.length == 0) {
+                document.location.href = "index.php";
+            }
             $.ajax({
                 type: "POST",
                 url: "getPostCount.php",
@@ -117,11 +118,11 @@
     });
 
     $("#submitBtn").click(function(){
-        
+        let user = "<?php echo $_SESSION['username']; ?>";
+
         let data = $("#UserInput").val();
-       
         data = evalString(data);
-        if(typeof(user) !== 'undefined'){
+        if(user.length > 0){
             $.ajax({
                 type: "POST",
                 url: "userPageSubmit.php",
@@ -135,6 +136,9 @@
                 }
             });
         }
+        else {
+            document.location.href = "index.php";
+        }
         
     })
     
@@ -145,7 +149,6 @@
         let date = new Date();
         let currtime = (date.getHours()+":"+date.getMinutes()+":"+date.getSeconds());
         time = currtime;
-        user = "<?php echo $user ?>"
         setTimeout(getTime, 1000);
         
     }
